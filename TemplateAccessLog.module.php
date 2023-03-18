@@ -15,7 +15,7 @@ class TemplateAccessLog extends WireData implements Module {
 	public static function getModuleInfo() {
 		return [
 			'title' => 'Template Access log',
-			'version' => '0.1.0',
+			'version' => '0.1.1',
 			'summary' => 'Logs changes made to template roles and related access settings',
 			'autoload' => true,
 			'singular' => true,
@@ -31,10 +31,13 @@ class TemplateAccessLog extends WireData implements Module {
 
 		$item = $event->arguments(0);
 
-		$data = $this->database
-			->query('SELECT data FROM templates WHERE id = ' . (int) $item->id)
-			->fetchColumn();
-		$data = json_decode($data, true);
+		$data = [];
+		if ($item->id > 0) {
+			$data = $this->database
+				->query('SELECT data FROM templates WHERE id = ' . (int) $item->id)
+				->fetchColumn();
+			$data = json_decode($data, true);
+		}
 
 		$permissions = [
 			'view' => [
