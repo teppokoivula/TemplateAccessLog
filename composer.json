@@ -1,0 +1,23 @@
+{
+    "name": "teppokoivula/template-access-log",
+    "type": "pw-module",
+    "description": "ProcessWire module that logs changes made to template roles and related access settings",
+    "keywords": [
+        "module",
+        "processwire"
+    ],
+    "homepage": "https://github.com/teppokoivula/TemplateAccessLog",
+    "license": "MPL-2.0",
+    "authors": [
+        {
+            "name": "Teppo Koivula",
+            "homepage": "https://github.com/teppokoivula",
+            "email": "teppo.koivula@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "processwire/processwire": ">=3.0.165",
+        "wireframe-framework/processwire-composer-installer": "^1.0.0"
+    }
+}
